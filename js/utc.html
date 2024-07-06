@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Live UTC Time</title>
+    <style>
+        #utc-time {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="utc-time"></p>
+
+    <script>
+        function displayUTCTime() {
+            //gets and sets DATE for device clock
+            var currentTime = new Date();
+            //uses time to 
+            var utcTime = currentTime.toUTCString();
+            document.getElementById('utc-time').textContent = utcTime;
+        }
+
+        // Call the function initially
+        displayUTCTime();
+
+        // Update the time every second
+        setInterval(displayUTCTime, 1000);
+    </script>
+</body>
+
+</html>

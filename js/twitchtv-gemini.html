@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamer Stream</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /* Similar to Twitch font */
+            background-color: #1F2124;
+            /* Twitch dark background */
+            color: #fff;
+            /* Light text color */
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #30363B;
+            /* Twitch header background */
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            /* Style your header content here (logo, search bar etc.) */
+        }
+        
+        .content {
+            display: flex;
+            flex-grow: 1;
+        }
+        
+        .sidebar {
+            width: 300px;
+            padding: 1rem;
+            overflow-y: auto;
+            border-right: 1px solid #4F545C;
+            /* Border color */
+        }
+        
+        .sidebar.fixed {
+            /* Styling for fixed chat sidebar */
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stream-container {
+            display: flex;
+            background-color: #242A30;
+            /* Darker video container background */
+        }
+        
+        .stream-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+        
+        .channel-info {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            /* Style channel info elements (title, game, viewers etc.) */
+        }
+        /* Media queries for responsive adjustments */
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .main-content {
+                flex: unset;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <div class="content">
+            <aside class="sidebar fixed"> </aside>
+            <main class="main-content">
+                <div class="stream-container">
+                    <iframe src="https://dev.twitch.tv/docs/embed" class="stream-video" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <div class="channel-info">
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

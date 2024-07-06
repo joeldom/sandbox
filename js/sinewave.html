@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waveform Analyzer</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="waveformCanvas" width="800" height="200"></canvas>
+    <script>
+        // Generate waveform data
+        function generateWaveformData(length, amplitude, frequency, phase, time) {
+            const waveform = [];
+            for (let i = 0; i < length; i++) {
+                waveform.push(Math.sin((i + time) * frequency * 0.1 + phase) * amplitude);
+            }
+            return waveform;
+        }
+
+        // Draw waveform on canvas
+        function drawWaveform(waveform, time) {
+            const canvas = document.getElementById('waveformCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+
+            ctx.clearRect(0, 0, width, height);
+
+            ctx.beginPath();
+            ctx.moveTo(0, height / 2);
+
+            const scaleX = width / waveform.length;
+            const scaleY = height / 2;
+
+            for (let i = 0; i < waveform.length; i++) {
+                ctx.lineTo(i * scaleX, (1 - waveform[i]) * scaleY);
+            }
+
+            ctx.strokeStyle = 'blue';
+            ctx.stroke();
+
+            // Call drawWaveform again on next animation frame
+            requestAnimationFrame(() => drawWaveform(waveform, time + 0.1));
+        }
+
+        // Main function
+        function main() {
+            const waveformData = generateWaveformData(800, 100, 0.1, 0, 0); // Length, amplitude, frequency, phase, initial time
+            drawWaveform(waveformData, 0);
+        }
+
+        main();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch.tv Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e10;
+            color: #FFF;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: 100vh;
+        }
+        
+        .header {
+            background-color: #6441A4;
+            color: #FFF;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .sidebar {
+            background-color: #1F1F23;
+            color: #FFF;
+            width: 250px;
+            padding: 10px;
+        }
+        
+        .chat {
+            background-color: #18181B;
+            width: 250px;
+            padding: 10px;
+        }
+        
+        .channel-details {
+            background-color: #1F1F23;
+            padding: 10px;
+            border-bottom: 1px solid #2F2F33;
+            flex-basis: 250px;
+        }
+        
+        .video-player {
+            background-color: #000;
+            color: #FFF;
+            padding: 10px;
+            flex-grow: 1;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Twitch.tv Layout</h1>
+        </div>
+        <div class="content">
+            <div class="sidebar">
+                <h2>Followed Channels</h2>
+                <ul>
+                    <li>Channel 1</li>
+                    <li>Channel 2</li>
+                    <li>Channel 3</li>
+                    <!-- Add more followed channels here -->
+                </ul>
+            </div>
+            <div class="video-player">
+                <h2>Video FFF Player</h2>
+                <!-- Video player will be placed here -->
+            </div>
+            <div class="chat">
+                <h2>Chat</h2>
+                <div id="chat-messages">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <!-- Chat input form can be added here -->
+            </div>
+            <div class="channel-details">
+                <h2>Channel Details</h2>
+                <p>Channel Name: Lorem Ipsum</p>
+                <p>Stream Title: Lorem Ipsum Dolor Sit Amet</p>
+                <!-- Add more channel details here -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
